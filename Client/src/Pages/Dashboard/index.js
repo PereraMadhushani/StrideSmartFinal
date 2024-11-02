@@ -14,6 +14,7 @@ import LeaveManagement from '../Leave_01';
 import CalculateSalary from '../SalaryMain'; 
 import RequestMaterial from '../HistoryRequestMaterial'; 
 import Order from '../Order';
+import Salary from '../Salary'
 import NewRequest from '../NewRequest'; // Import NewRequest component
 
 const Dashboard = () => {
@@ -25,7 +26,7 @@ const Dashboard = () => {
     { id: 7, title: t('Drivers'), component: <AboutDrivers />, icon: <FcShipped /> },
     { id: 1, title: t('Order'), component: <Order />, icon: <FcAcceptDatabase /> }, 
     { id: 2, title: t('Leave Management'), component: <LeaveManagement />, icon: <FcOvertime /> }, 
-    { id: 4, title: t('Calculate Salary'), component: <CalculateSalary />, icon: <FcDebt /> },
+    { id: 4, title: t('Calculate Salary'), component: <Salary />, icon: <FcDebt /> },
     { id: 5, title: t('Request Material'), component: <RequestMaterial />, icon: <FcBusiness /> },
   ];
 

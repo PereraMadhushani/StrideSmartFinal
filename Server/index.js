@@ -9,6 +9,7 @@ import { driverRouter } from "./Routes/DriverRoute.js";
 import { loginRouter } from "./Routes/loginRoute.js";
 import { countRouter } from "./Routes/CountRoute.js";
 import { requestMaterialRouter} from "./Routes/requestMaterialRoute.js";
+import { salaryRouter } from "./Routes/SalaryRoute.js";
 import { Server } from "socket.io";
 import http from "http";
 
@@ -64,6 +65,7 @@ app.use('/login', loginRouter(io));
 app.use('/count', countRouter(io));
 app.use('/material', requestMaterialRouter(io));
 app.use('/Images',express.static('Public/Images'));
+app.use('/salary', salaryRouter(io));
 
 // Handle Socket.IO connections
 let connectedClients = [];

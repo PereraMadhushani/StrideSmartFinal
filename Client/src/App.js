@@ -14,7 +14,7 @@ import LeaveForm from './Pages/LeaveForm';
 import Login from './Pages/Login';
 import Settings from "./Components/Navbar/Settings";
 import SalaryMain from './Pages/SalaryMain';
-import Salary from './Pages/SalaryMain/Salary';
+import Salary from './Pages/Salary';
 import SeePerformance from './Pages/SeePerformance';
 import HistoryRequestMaterial from './Pages/HistoryRequestMaterial';
 import NewRequest from './Pages/NewRequest';
@@ -66,6 +66,7 @@ function App() {
         <Route path="adminDashboard" element={<AdminDashboard />} />
         <Route path="/storemanagerDashboard" element={<StoreManagerDashboard />}></Route>
         <Route path="/addNewUser" element={<AddNewUser />}></Route>
+        {/* // <Route path="/salary" element={<salary />}></Route> */}
 
       </Routes>
     </BrowserRouter>
