@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #EEEEEE; /* Background color from the theme */
+}
+
+h1 {
+  text-align: center;
+  color: #3B1E54; /* Text color from the theme */
+}
+
+/* Container styles */
+.MuiContainer-root {
+  margin-top: 20px;
+  background-color: #D4BEE4; /* Background color from the theme */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.MuiTable-root {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.MuiTableCell-root {
+  padding: 16px;
+  border-bottom: 1px solid #9B7EBD; /* Border color from the theme */
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #9B7EBD; /* Background color from the theme */
+  color: #EEEEEE; /* Text color from the theme */
+  font-weight: bold;
+}
+
+.MuiTableRow-root:hover {
+  background-color: #D4BEE4; /* Hover background color from the theme */
+}
+
+.MuiTableCell-root button {
+  margin-right: 8px;
+}
+
+/* Button Styling */
+.MuiButton-containedSuccess {
+  background-color: #3B1E54; /* Background color from the theme */
+  color: #EEEEEE; /* Text color from the theme */
+}
+
+.MuiButton-containedError {
+  background-color: #9B7EBD; /* Background color from the theme */
+  color: #EEEEEE; /* Text color from the theme */
+}

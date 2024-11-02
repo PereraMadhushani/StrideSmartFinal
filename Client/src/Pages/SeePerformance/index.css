@@ -1,0 +1,51 @@
+/* SeePerformance.css */
+
+.see-performance-container {
+  padding: 10px;
+  background-color: #EEEEEE; /* Background color from the theme */
+}
+
+.see-performance-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.see-performance-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.see-performance-metrics {
+  margin-bottom: 20px;
+}
+
+.see-performance-metric-card {
+  background-color: #D4BEE4; /* Background color from the theme */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  color: #3B1E54; /* Text color from the theme */
+  height: 170px; /* Increased height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.see-performance-chart-container {
+  text-align: center;
+}
+
+.see-performance-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.see-performance-chart {
+  margin: 0 auto;
+}

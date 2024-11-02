@@ -1,0 +1,102 @@
+.history-request-material-container {
+  padding: 20px;
+  background-color: #EEEEEE; /* Background color from the theme */
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.add-button {
+  background-color: #9B7EBD; /* Background color from the theme */
+  color: #EEEEEE; /* Text color from the theme */
+  border-radius: 50%; /* Make the button circular */
+  width: 50px; /* Set width */
+  height: 50px; /* Set height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button:hover {
+  background-color: #3B1E54; /* Hover background color from the theme */
+}
+
+.history-content {
+  margin-top: 20px;
+}
+
+.search-bar {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #9B7EBD; /* Border color from the theme */
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #D4BEE4; /* Background color from the theme */
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.table-container {
+  max-height: 400px; /* Adjust the height as needed */
+  overflow-y: auto;
+  position: relative;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.history-table th, .history-table td {
+  border: 1px solid #9B7EBD; /* Border color from the theme */
+  padding: 10px;
+  text-align: center;
+}
+
+.history-table th {
+  background-color: #D4BEE4; /* Background color from the theme */
+  color: #3B1E54; /* Text color from the theme */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.history-table td {
+  background-color: #EEEEEE; /* Background color from the theme */
+  color: #3B1E54; /* Text color from the theme */
+}
+
+.details-btn {
+  background-color: #3B1E54; /* Background color from the theme */
+  color: #EEEEEE; /* Text color from the theme */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.details-btn:hover {
+  background-color: #9B7EBD; /* Hover background color from the theme */
+}
+
+.emp-info {
+  display: flex;
+  align-items: center;
+}
+
+.emp-icon {
+  margin-right: 10px;
+}
