@@ -4,73 +4,91 @@ import axios from "axios";
 
 // API functions
 const addProductionData = (data) => axios.post(`http://localhost:5000/salary/production`, data);
-const fetchSalary = (regNumber) =>
-  axios.get(`http://localhost:5000/salary/salary/${regNumber}`);
-const fetchEmployees = () =>
-  axios.get(`http://localhost:5000/employee/employees`);
+const fetchSalary = (regNumber) => axios.get(`http://localhost:5000/salary/salary/${regNumber}`);
+const fetchEmployees = () => axios.get(`http://localhost:5000/employee/employees`);
+const validateRegNumber = (regNumber) => axios.get(`http://localhost:5000/employee/validate/${regNumber}`);
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [productionData, setProductionData] = useState({
+    regNumber: "",
     shoe_type: "",
     size: "",
     unit_price: 0,
     quantity: 0,
   });
   const [salary, setSalary] = useState(null);
+
   useEffect(() => {
     fetchEmployees().then((res) => setEmployees(res.data));
   }, []);
 
-  const handleProductionSubmit = () => {
-    addProductionData({
-      ...productionData,
-      regNumber: selectedEmployee,
-    }).then(() => alert("Production data added"));
+  const handleProductionSubmit = async () => {
+    try {
+      const { data } = await validateRegNumber(productionData.regNumber);
+      if (!data.valid) {
+        alert("Invalid Registration Number. Please enter a valid reg number.");
+        return;
+      }
+
+      await addProductionData(productionData);
+      alert("Production data added successfully!");
+      setProductionData({
+        regNumber: "",
+        shoe_type: "",
+        size: "",
+        unit_price: 0,
+        quantity: 0,
+      });
+    } catch (error) {
+      alert("Error adding production data.");
+    }
   };
 
-  const handleSalaryCalculation = () => {
-    fetchSalary(selectedEmployee).then((res) => setSalary(res.data.net_salary));
+  const handleSalaryCalculation = async () => {
+    try {
+      const { data } = await fetchSalary(productionData.regNumber);
+      setSalary(data.net_salary);
+    } catch (error) {
+      alert("Error calculating salary.");
+    }
   };
 
   return (
     <div>
       <h1>Shoe Manufacturing Salary Calculation</h1>
 
-      <select
-        onChange={(e) => setSelectedEmployee(e.target.value)}
-        value={selectedEmployee}
-      >
-        <option>Select Employee</option>
-        {employees.map((emp) => (
-          <option key={emp.regNumber} value={emp.regNumber}>
-            {emp.regNumber}
-          </option>
-        ))}
-      </select>
-
       <div>
         <h3>Production Data</h3>
         <input
           type="text"
+          placeholder="Reg Number"
+          value={productionData.regNumber}
+          onChange={(e) => setProductionData({ ...productionData, regNumber: e.target.value })}
+        />
+        <input
+          type="text"
           placeholder="Shoe Type"
+          value={productionData.shoe_type}
           onChange={(e) => setProductionData({ ...productionData, shoe_type: e.target.value })}
         />
         <input
           type="number"
           placeholder="Size"
+          value={productionData.size}
           onChange={(e) => setProductionData({ ...productionData, size: e.target.value })}
         />
         <input
           type="number"
-          placeholder="Unit Price"
-          onChange={(e) => setProductionData({ ...productionData, unit_price: e.target.value })}
+          placeholder="Quantity"
+          value={productionData.quantity}
+          onChange={(e) => setProductionData({ ...productionData, quantity: e.target.value })}
         />
         <input
           type="number"
-          placeholder="Quantity"
-          onChange={(e) => setProductionData({ ...productionData, quantity: e.target.value })}
+          placeholder="Unit Price"
+          value={productionData.unit_price}
+          onChange={(e) => setProductionData({ ...productionData, unit_price: e.target.value })}
         />
         <button onClick={handleProductionSubmit}>Add Production</button>
       </div>

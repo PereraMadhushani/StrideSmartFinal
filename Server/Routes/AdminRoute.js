@@ -45,8 +45,10 @@ export function adminRouter(io) {
             }
             next();
         });
-    }, registerUser);    
-    router.get('/users', getUsers); // Get all users
+    }, registerUser); 
+    
+    
+router.get('/users', getUsers); // Get all users
    // router.delete('/deleteUser/:id', deleteUser); // Delete user by ID
 
    router.delete('/deleteUser/:id', (req, res) => {

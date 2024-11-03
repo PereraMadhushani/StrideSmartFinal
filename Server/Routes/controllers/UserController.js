@@ -170,7 +170,7 @@ export const getNotifications = (req, res) => {
 
 export const getUsers = (req, res) => {
     console.log('GetUsers function called');
-    ;con.query('SELECT * FROM user', (err, result) => {
+    con.query('SELECT * FROM user', (err, result) => {
         if (err) {
             console.error('Error retrieving users:', err);
             return res.status(500).send({ success: false, error: 'Internal Server Error' });

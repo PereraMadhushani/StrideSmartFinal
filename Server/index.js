@@ -10,12 +10,12 @@ import { loginRouter } from "./Routes/loginRoute.js";
 import { countRouter } from "./Routes/CountRoute.js";
 import { requestMaterialRouter} from "./Routes/requestMaterialRoute.js";
 import { salaryRouter } from "./Routes/SalaryRoute.js";
+import { newRequestRouter } from './Routes/StoreManagerRoute.js'
 import { Server } from "socket.io";
 import http from "http";
-
-import con from './Utils/db.js';
 import './WebSocket/WebSocket.js';
 import nodemailer from 'nodemailer';
+import { orderRouter } from "./Routes/OrderRoute.js";
 
 // Initialize express app
 const app = express();
@@ -66,6 +66,8 @@ app.use('/count', countRouter(io));
 app.use('/material', requestMaterialRouter(io));
 app.use('/Images',express.static('Public/Images'));
 app.use('/salary', salaryRouter(io));
+app.use('/storemanager', newRequestRouter);
+// app.use('/order', orderRouter(io));
 
 // Handle Socket.IO connections
 let connectedClients = [];

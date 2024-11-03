@@ -86,6 +86,17 @@ con.query(query, params, (err, result) => {
     });
 });
 
+  // // Validate Registration Number
+  // router.get('/validate/:regNumber', (req, res) => {
+  //   const regNumber = req.params.regNumber;
+  //   const sql = `SELECT COUNT(*) as count FROM user WHERE regNumber = ? AND EXISTS (SELECT 1 FROM employee WHERE regNumber = ?)`;
+  //   con.query(sql, [regNumber, regNumber], (err, results) => {
+  //     if (err) return res.status(500).json({ error: err.message });
+  //     res.json({ valid: results[0].count > 0 });
+  //   });
+  // });
+  
+
 
   // In your employeeRoute.js or similar
 // router.put('/update_employee/:id', (req, res) => {
@@ -113,7 +124,25 @@ con.query(query, params, (err, result) => {
 //   });
 // });
 
-  
+   // Validate Registration Number
+router.get('/validate/:regNumber', (req, res) => {
+  console.log("Validating regNumber:", regNumber);
+  const regNumber = req.params.regNumber;
+  console.log("Validating regNumber:", regNumber);
+
+  const sql = `SELECT COUNT(*) as count FROM user WHERE regNumber = ? AND EXISTS (SELECT 1 FROM employee WHERE regNumber = ?)`;
+  con.query(sql, [regNumber, regNumber], (err, results) => {
+     if (err) {
+        console.error("Error validating registration number:", err.message);
+        return res.status(500).json({ error: err.message });
+      }
+      const isValid = results[0].count > 0;
+      console.log("Validation result for regNumber:", regNumber, "isValid:", isValid);
+
+      res.json({ valid: isValid });
+
+  });
+});
   
     return router; // Ensure we return the router instance
 }

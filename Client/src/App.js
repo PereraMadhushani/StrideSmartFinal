@@ -22,7 +22,7 @@ import Notification from './Pages/Notifications';
 import SalaryCalc from './Pages/SalaryCalc';
 import SalarySlip from './Pages/SalarySlip';
 import Order from "./Pages/Order";
-import AddOrderPage from "./Pages/Order/AddOrderPage";
+import AddOrderPage from "./Pages/AddOrderPage";
 import ForgotPassword from "./Pages/Login/ForgotPassword";
 import OtpVerification from "./Pages/Login/OtpVerification";
 import SetNewPassword from "./Pages/Login/SetNewPassword";
